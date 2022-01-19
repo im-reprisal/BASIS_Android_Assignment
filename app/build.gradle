@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+//    id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
 
@@ -89,5 +89,5 @@ dependencies {
     //shimmer
     implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 
-
+    implementation 'com.lorentzos.swipecards:library:1.0.9@aar'
 }

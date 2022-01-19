@@ -26,6 +26,6 @@ class CustomConverterFactory : Converter.Factory() {
     }
     companion object {
         private val MEDIA_TYPE = "application/json; charset=UTF-8".toMediaTypeOrNull()
-        private val DEFAULT_GSON_FACTORY = Gson() // you can define here your own gson
+        private val DEFAULT_GSON_FACTORY = Gson()
     }
 }

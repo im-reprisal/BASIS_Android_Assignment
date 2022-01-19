@@ -1,23 +1,27 @@
 package com.example.basis.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.basis.R
 import com.example.basis.data.Data
-import com.example.basis.ui.viewholder.DataViewHolder
+import com.example.basis.databinding.ItemLayoutBinding
 
-class DataAdapter(private val dataList : List<Data>) : RecyclerView.Adapter<DataViewHolder>() {
+class DataAdapter(val context: Context,private val dataList : List<Data>) : RecyclerView.Adapter<DataViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
-        return DataViewHolder(view)
+        val itemLayoutBinding = ItemLayoutBinding.inflate(LayoutInflater.from(context),parent,false)
+        return DataViewHolder(itemLayoutBinding)
     }
     override fun onBindViewHolder(holder: DataViewHolder, pos: Int) {
         val data = dataList[pos]
-        holder.setData(data)
+        holder.itemLayoutBinding.tvPageNo.text = data.id
+        holder.itemLayoutBinding.tvId.text = data.id
+        holder.itemLayoutBinding.tvTitle.text = data.text
     }
     override fun getItemCount(): Int {
         return dataList.size
     }
 }
+
+class DataViewHolder(val itemLayoutBinding: ItemLayoutBinding) : RecyclerView.ViewHolder(itemLayoutBinding.root)
