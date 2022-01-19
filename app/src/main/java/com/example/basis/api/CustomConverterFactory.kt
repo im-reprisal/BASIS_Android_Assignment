@@ -1,4 +1,4 @@
-package com.example.basis
+package com.example.basis.api
 
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -10,10 +10,8 @@ import java.io.IOException
 import java.lang.reflect.Type
 
 class CustomConverterFactory : Converter.Factory() {
-
     override fun responseBodyConverter(type: Type, annotations: Array<Annotation>, retrofit: Retrofit)
             : Converter<ResponseBody, *> = ResponseBodyConverter<Any>(type)
-
     override fun requestBodyConverter(type: Type, parameterAnnotations: Array<Annotation>, methodAnnotations: Array<Annotation>, retrofit: Retrofit)
             : Converter<*, RequestBody> = RequestBodyConverter<Any>()
     class ResponseBodyConverter<T> internal constructor(private val type: Type) : Converter<ResponseBody, T> {
